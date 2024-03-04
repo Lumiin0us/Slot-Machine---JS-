@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slot Machine</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .abc {
+      display: flex; /* Added */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .abc > div {
+      margin: 0 10px; /* Added margin for spacing between the ABC elements */
+    }
+  </style>
+</head>
+<body>
+    <div class="abc">
+  <div class="A's">
+    <div class="A">1</div>
+    <div class="A">2</div>
+    <div class="A">3</div>
+  </div>
+  <div class="B's">
+    <div class="B">1</div>
+    <div class="B">2</div>
+    <div class="B">3</div>
+  </div>
+  <div class="C's">
+    <div class="C">1</div>
+    <div class="C">2</div>
+    <div class="C">3</div>
+  </div>
+  </div>
+  <div id="slot_button">Roll</div>
+  <script>
+    let a = document.getElementsByClassName("A");
+    let b = document.getElementsByClassName("B");
+    let c = document.getElementsByClassName("C");
+    let roll = document.getElementById("slot_button");
+
+    roll.addEventListener("click", () => {
+        for(let i = 0; i < 3; i++)
+        {
+            let rand_A = Math.floor(Math.random() * 5);
+            let rand_B = Math.floor(Math.random() * 5);
+            let rand_C = Math.floor(Math.random() * 5);
+            a[i].innerHTML = rand_A;
+            b[i].innerHTML = rand_B;
+            c[i].innerHTML = rand_C;
+            console.log(rand_A, rand_B, rand_C);
+        }
+      if (a[0].innerHTML === b[0].innerHTML && b[0].innerHTML === c[0].innerHTML) 
+      {
+        alert("You Won");
+      }
+      else if(a[1].innerHTML === b[1].innerHTML && b[1].innerHTML === c[1].innerHTML)
+      {
+        alert("You Won");
+      }
+      else if(a[2].innerHTML === b[2].innerHTML && b[2].innerHTML === c[2].innerHTML)
+      {
+        alert("You Won");
+      }
+    });
+  </script>
+</body>
+</html>
